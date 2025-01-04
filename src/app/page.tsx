@@ -75,14 +75,14 @@ export default function Home() {
             {results.map((result, index) => (
               <p
                 key={index}
-                className="flex items-center bg-[#C58DE7]/10 backdrop-blur-10 border border-[#C58DE7]/20 rounded-lg justify-center w-[100px] font-bold text-[#C58DE7] text-4xl h-[56px]"
+                className="flex items-center bg-[#C58DE7]/10 backdrop-blur-10 border border-[#C58DE7]/20 rounded-lg justify-center w-[120px] font-bold text-[#C58DE7] text-4xl h-[56px]"
               >
                 {result}
               </p>
             ))}
           </div>
           <button
-            className="flex w-[332px] items-center justify-center uppercase h-[56px] rounded-lg bg-[#24222E]"
+            className="flex w-full items-center justify-center uppercase h-[56px] rounded-lg bg-[#24222E]"
             onSubmit={handleSubmit}
           >
             Sortear novamente
