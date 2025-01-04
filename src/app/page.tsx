@@ -1,4 +1,5 @@
 "use client";
+import NumberTicker from "@/components/ui/number-ticker";
 import { ArrowArcLeft, ArrowRight, Trash } from "@phosphor-icons/react";
 import { useState } from "react";
 
@@ -39,17 +40,17 @@ export default function Home() {
           >
             <h1 className="text-5xl font-bold leading-tight mb-5 text-white">Sorteador de números.</h1>
             <div className="flex gap-4 ">
-              <div className="flex flex-col items-center gap-2 justify-center rounded-lg">
+                <div className="flex flex-col items-center gap-2 justify-center rounded-lg w-full">
                 <p className="font-bold uppercase text-zinc-500">Número(s)</p>
                 <input
-                  className="flex text-center text-white font-bold ring-0 focus:ring-0 focus:outline-none text-4xl max-sm:text-3xl items-center  justify-center w-full h-[56px] rounded-lg border-none bg-[#111012]"
+                  className="flex text-center text-white font-bold ring-0 focus:ring-0 focus:outline-none text-4xl max-sm:text-3xl items-center justify-center w-full h-[56px] rounded-lg border-none bg-[#111012]"
                   type="number"
                   name="quantity"
                   id="quantity"
                   min={1}
                   defaultValue={1}
                 />
-              </div>
+                </div>
               <div className="flex flex-col items-center gap-2 justify-center rounded-lg">
                 <p className="font-bold uppercase text-zinc-500">De</p>
                 <input
@@ -90,9 +91,9 @@ export default function Home() {
                 {results.map((result, index) => (
                   <p
                     key={index}
-                    className="flex items-center bg-zinc-800/70 backdrop-blur-10 rounded-lg justify-center font-bold w-full max-sm:w-full text-[#C58DE7] text-4xl h-[56px]"
+                    className="flex items-center bg-zinc-800/70 backdrop-blur-10 rounded-lg justify-center font-bold w-full max-sm:w-full text-4xl h-[56px]"
                   >
-                    {result}
+                    <NumberTicker className="text-[#C58DE7]" value={result} />
                   </p>
                 ))}
               </div>
