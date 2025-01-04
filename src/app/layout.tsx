@@ -19,9 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${sora.variable} antialiased`}
-      >
+      <head>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7827471872817247"
+          crossOrigin="anonymous"
+        ></script>
+      </head>
+      <body className={`${sora.variable} antialiased`}>
         {children}
       </body>
     </html>
