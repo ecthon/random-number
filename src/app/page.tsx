@@ -1,4 +1,5 @@
 "use client";
+import { ArrowArcLeft, ArrowRight, Trash } from "@phosphor-icons/react";
 import { useState } from "react";
 
 export default function Home() {
@@ -21,12 +22,17 @@ export default function Home() {
     setResults(Array.from(newResults));
   };
 
+  const handleReset = () => {
+    setResults([]);
+    setCount(0);
+  };
+
   return (
     <div
       className="flex w-full max-sm:w-full bg-center bg-repeat-y"
       style={{ backgroundImage: "url('/bg.svg')" }}
     >
-      <div className="flex flex-col items-center justify-center max-sm:w-full w-full min-h-screen bg-gradient-to-b from-black/90 to-black/50 ms:px-5 pt-40">
+      <div className="flex flex-col items-center max-sm:w-full w-full min-h-screen bg-gradient-to-b from-black/90 to-black/50 ms:px-5 pt-40">
           <form
             className="flex w-[500px] max-sm:w-full flex-col gap-8 items-center max-sm:px-5"
             onSubmit={handleSubmit}
@@ -34,7 +40,7 @@ export default function Home() {
             <h1 className="text-5xl font-bold leading-tight mb-5 text-white">Sorteador de números.</h1>
             <div className="flex gap-4 ">
               <div className="flex flex-col items-center gap-2 justify-center rounded-lg">
-                <p className="font-bold uppercase text-zinc-300">Número(s)</p>
+                <p className="font-bold uppercase text-zinc-500">Número(s)</p>
                 <input
                   className="flex text-center text-white font-bold ring-0 focus:ring-0 focus:outline-none text-4xl max-sm:text-3xl items-center  justify-center w-full h-[56px] rounded-lg border-none bg-[#111012]"
                   type="number"
@@ -45,7 +51,7 @@ export default function Home() {
                 />
               </div>
               <div className="flex flex-col items-center gap-2 justify-center rounded-lg">
-                <p className="font-bold uppercase text-zinc-300">De</p>
+                <p className="font-bold uppercase text-zinc-500">De</p>
                 <input
                   className="flex text-center text-white font-bold ring-0 focus:ring-0 focus:outline-none text-4xl max-sm:text-3xl items-center justify-center w-full h-[56px] rounded-lg border-none bg-[#111012]"
                   type="number"
@@ -55,7 +61,7 @@ export default function Home() {
                 />
               </div>
               <div className="flex flex-col items-center gap-2 justify-center rounded-lg">
-                <p className="font-bold uppercase text-zinc-300">Até</p>
+                <p className="font-bold uppercase text-zinc-500">Até</p>
                 <input
                   className="flex text-center text-white font-bold ring-0 focus:ring-0 focus:outline-none text-4xl max-sm:text-3xl items-center justify-center w-full h-[56px] rounded-lg border-none bg-[#111012]"
                   type="number"
@@ -67,25 +73,31 @@ export default function Home() {
             </div>
             <button
               type="submit"
-              className="flex w-full items-center justify-center uppercase text-white h-[56px] rounded-lg bg-[#24222E]"
+              className="flex w-full items-center justify-center gap-2 uppercase text-[#C58DE7] hover:text-[#aa79c9] h-[56px] rounded-lg bg-[#24222E]"
             >
               Sortear
+              <ArrowRight className="w-6 h-6 ml-2" />
             </button>
           </form>
-          <div className="flex flex-col w-[500px] max-sm:w-full my-10 gap-8 items-center max-sm:px-5">
-            <h1 className="text-white">Resultado do sorteio</h1>
-            <p className="text-zinc-300">{count}ª Rodada</p>
-            <div className="flex w-full gap-4 flex-wrap">
-              {results.map((result, index) => (
-                <p
-                  key={index}
-                  className="flex items-center bg-zinc-800/70 backdrop-blur-10 rounded-lg justify-center w-full font-bold max-w-[156px] max-sm:max-w-[113px] text-[#C58DE7] text-4xl h-[56px]"
-                >
-                  {result}
-                </p>
-              ))}
+          {results.length > 0 && (
+            <div className="flex flex-col w-[500px] max-sm:w-full my-10 gap-8 items-center max-sm:px-5">
+              <h1 className="text-white">Resultado do sorteio</h1>
+              <div className="flex items-center justify-between w-full gap-4">
+              <p className="text-zinc-300">{count}ª Rodada</p>
+              <Trash className="size-6 text-zinc-500 hover:text-zinc-300 cursor-pointer" onClick={handleReset} />
+              </div>
+              <div className="flex w-full gap-4 flex-wrap">
+                {results.map((result, index) => (
+                  <p
+                    key={index}
+                    className="flex items-center bg-zinc-800/70 backdrop-blur-10 rounded-lg justify-center font-bold w-full max-sm:w-full text-[#C58DE7] text-4xl h-[56px]"
+                  >
+                    {result}
+                  </p>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
       </div>
     </div>
   );
