@@ -23,10 +23,10 @@ export default function Home() {
 
   return (
     <div
-      className="flex w-full max-sm:w-full bg-center bg-repeat-y"
+      className="flex w-full max-sm:w-full bg-center bg-repeat-y bg-gradient-to-b from-black/90 to-black/50"
       style={{ backgroundImage: "url('/bg.svg')" }}
     >
-      <div className="flex flex-col items-center justify-center max-sm:w-full w-full min-h-screen bg-gradient-to-b from-black/90 to-black/50 ms:px-5 pt-40">
+      <div className="flex flex-col items-center justify-center max-sm:w-full w-full min-h-screen ms:px-5 pt-40">
           <form
             className="flex w-[500px] max-sm:w-full flex-col gap-8 items-center max-sm:px-5"
             onSubmit={handleSubmit}
