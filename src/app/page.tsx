@@ -1,6 +1,6 @@
 "use client";
 import NumberTicker from "@/components/ui/number-ticker";
-import { ArrowArcLeft, ArrowRight, Trash } from "@phosphor-icons/react";
+import { ArrowArcLeft, ArrowCounterClockwise, ArrowRight, Trash } from "@phosphor-icons/react";
 import { useState } from "react";
 
 export default function Home() {
@@ -72,13 +72,24 @@ export default function Home() {
                 />
               </div>
             </div>
-            <button
+            {results.length === 0 ? (
+                          <button
+                          type="submit"
+                          className="flex w-full items-center justify-center gap-2 uppercase text-[#C58DE7] hover:text-[#aa79c9] h-[56px] rounded-lg bg-[#24222E]"
+                        >
+                          Sortear
+                          <ArrowRight className="w-6 h-6 ml-2" />
+                        </button>
+            ): (
+              <button
               type="submit"
               className="flex w-full items-center justify-center gap-2 uppercase text-[#C58DE7] hover:text-[#aa79c9] h-[56px] rounded-lg bg-[#24222E]"
             >
-              Sortear
-              <ArrowRight className="w-6 h-6 ml-2" />
+              Sortear novamente
+              <ArrowCounterClockwise className="w-6 h-6 ml-2" />
             </button>
+            )}
+
           </form>
           {results.length > 0 && (
             <div className="flex flex-col w-[500px] max-sm:w-full my-10 gap-8 items-center max-sm:px-5">
