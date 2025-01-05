@@ -58,7 +58,8 @@ export default function Home() {
                   type="number"
                   name="from"
                   id="from"
-                  defaultValue={0}
+                  defaultValue={1}
+                  min={1}
                 />
               </div>
               <div className="flex flex-col items-center gap-2 justify-center rounded-lg">
@@ -69,6 +70,7 @@ export default function Home() {
                   name="to"
                   id="to"
                   defaultValue={100}
+                  max={9000}
                 />
               </div>
             </div>
