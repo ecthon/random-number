@@ -8,8 +8,13 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "Create Next App",
-  description: "Gerador de números aleatórios.",
+  title: "Sorteador de Números - Gerador de Números Aleatórios Online",
+  description:
+    "Use nosso sorteador de números para gerar números aleatórios de forma rápida e fácil. Ideal para sorteios, loterias e muito mais.",
+  keywords:
+    "sorteador de números, gerador de números aleatórios, sorteios, loterias, números aleatórios online",
+  viewport: "width=device-width, initial-scale=1.0",
+  robots: "index, follow",
 };
 
 export default function RootLayout({
@@ -26,9 +31,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         ></script>
       </head>
-      <body className={`${sora.variable} antialiased`}>
-        {children}
-      </body>
+      <body className={`${sora.variable} antialiased`}>{children}</body>
     </html>
   );
 }
