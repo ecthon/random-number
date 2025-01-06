@@ -30,8 +30,8 @@ export function DrawForm({ onSubmit, hasResults }: DrawFormProps) {
       className="flex w-[500px] max-sm:w-full flex-col gap-8 items-center max-sm:px-"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <h1 className="text-5xl font-bold leading-tight mb-5 text-white">
-        Sorteador de números
+      <h1 className="text-5xl max-sm:text-3xl font-bold leading-tight mb-5 text-white">
+        Sorteador de números. 🎰
       </h1>
       
       <div className="flex gap-4">
